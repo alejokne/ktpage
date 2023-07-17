@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Nutripedia</title>
+    <style>
+       
+        /* Estilos CSS para la barra de navegación */
+        .body {
+            font-family: "Futura", sans-serif;
+        
+        }
+        .volver-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px 20px;
+      background-color: #008000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .volver-btn:hover {
+      background-color: #006400;
+    }
+        .navbar {
+            
+            display: flex;
+            justify-content: space-around;
+            background-color: #4CAF50;
+            padding: 10px;
+        }
+        .navbar button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: "Futura", sans-serif;
+        }
+        .navbar button:hover {
+            background-color: #4CAF50;
+            font-family: "Futura", sans-serif; color: #000000;
+        }
+        /* Estilos CSS para el contenido */
+        .content {
+            margin-top: 20px;
+            padding: 50vh;
+            width: 100%;
+            height: 100%;
+            background-color: #d6ce8b;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+        /* Estilos CSS para el pie de página */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            font-family: "Futura", sans-serif;
+        }
+        /* Estilos CSS para las opciones desplegables */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #000000;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content button {
+            color: black;
+            width: 100%;
+            box-sizing: border-box;
+            text-decoration: none;
+            display: block;
+            
+        }
+        .dropdown-content button:hover {
+            background-color: #45a049;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="file:///Users/alejolg/Desktop/NUTRIPEDIA/index.html#" class="volver-btn">Volver</a>
+    <div class="navbar">
+        <div class="dropdown">
+            <button>Carbohidratos</button>
+            <div class="dropdown-content">
+                <button>Opción 1</button>
+                <button>Opción 2</button>
+                <button>Opción 3</button>
+                <button>Opción 4</button>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button>Proteínas</button>
+            <div class="dropdown-content">
+                <button>Opción 1</button>
+                <button>Opción 2</button>
+                <button>Opción 3</button>
+                <button>Opción 4</button>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button>Suplementos</button>
+            <div class="dropdown-content">
+                <button>Opción 1</button>
+                <button>Opción 2</button>
+                <button>Opción 3</button>
+                <button>Opción 4</button>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button>Leguminosas</button>
+            <div class="dropdown-content">
+                <button>Opción 1</button>
+                <button>Opción 2</button>
+                <button>Opción 3</button>
+                <button>Opción 4</button>
+            </div>
+        </div>
+    </div>
+    <div class="content" id="contenido">
+        <!-- Aquí se mostrará el contenido seleccionado -->
+    </div>
+    <div class="footer">
+        Pie de página
+    </div>
+    <script>
+        // Función para mostrar las opciones correspondientes al botón clickeado
+        function mostrarOpciones(opcion) {
+            var contenido = document.getElementById("contenido");
+            var opciones = "";
+            switch (opcion) {
+                case "carbohidratos":
+                    opciones = "<ul><li>Opción 1</li><li>Opción 2</li><li>Opción 3</li><li>Opción 4</li></ul>";
+                    break;
+                case "proteinas":
+                    opciones = "<ul><li>Opción 1</li><li>Opción 2</li><li>Opción 3</li><li>Opción 4</li></ul>";
+                    break;
+                case "suplementos":
+                    opciones = "<ul><li>Opción 1</li><li>Opción 2</li><li>Opción 3</li><li>Opción 4</li></ul>";
+                    break;
+                case "leguminosas":
+                    opciones = "<ul><li>Opción 1</li><li>Opción 2</li><li>Opción 3</li><li>Opción 4</li></ul>";
+                    break;
+                default:
+                    opciones = "No se encontraron opciones";
+            }
+            contenido.innerHTML = opciones;
+        }
+    </script>
+</body>
+</html>

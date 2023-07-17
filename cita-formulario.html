@@ -1,0 +1,109 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de Cita</title>
+  <style>
+    body {
+      background-color: #02907d;
+      color: #042b00;
+      font-family: "Futura", sans-serif;
+      padding: 20px;
+    }
+     h1 {
+      text-align: center;
+      color: #2c1001;
+    }
+     h2 {
+      margin-top: 30px;
+      text-align: center;
+    }
+     form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #d6ce8b;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+     label {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+    }
+     input[type="text"],
+    input[type="number"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #02907d;
+      background-color: #03453d;
+      color: #fff;
+    }
+     button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+      border: none;
+      background-color: #2c1001;
+      color: #fff;
+      cursor: pointer;
+    }
+     button:hover {
+      background-color: #165e1b;
+    }
+    .volver-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px 20px;
+      background-color: #008000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .volver-btn:hover {
+      background-color: #006400;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <a href="file:///Users/alejolg/Desktop/NUTRIPEDIA/index.html#" class="volver-btn">Volver</a>
+     <h1>Solicitar Cita</h1>
+    <form>
+    <h2>Fecha y Hora de la Cita</h2>
+    <label for="fecha">Fecha:</label>
+    <input type="text" id="fecha" name="fecha" placeholder="DD/MM/AAAA">
+    <label for="hora">Hora:</label>
+    <input type="text" id="hora" name="hora" placeholder="HH:MM">
+    <h2>Datos Personales</h2>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad" placeholder="Edad">
+    <label for="imc">IMC:</label>
+    <input type="number" id="imc" name="imc" placeholder="Índice de Masa Corporal">
+    <label for="numero">Numero de Teléfono:</label>
+    <input type="tel" id="numero" name="numero" placeholder="Número de teléfono">
+    <button onclick="convertToPDF()">Convertir y Descargar PDF</button>
+  </form>
+  <script>
+    function convertToPDF() {
+      const doc = new jsPDF();
+      doc.text("Fecha: " + document.getElementById("fecha").value, 10, 10);
+      doc.text("Hora: " + document.getElementById("hora").value, 10, 20);
+      doc.text("Nombre: " + document.getElementById("nombre").value, 10, 30);
+      doc.text("Edad: " + document.getElementById("edad").value, 10, 40);
+      doc.text("IMC: " + document.getElementById("imc").value, 10, 50);
+      doc.text("Número de Teléfono: " + document.getElementById("numero").value, 10, 60);
+      doc.save("formulario.pdf");
+    }
+  </script>
+</body>
+</html>
